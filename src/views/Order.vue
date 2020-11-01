@@ -11,11 +11,7 @@
     <p>Gift: €25 / €50</p>
 
     <div class="flex flex-wrap -mx-4">
-      <div
-        class="mt-6 lg:mt-10 w-full px-2 lg:px-4 lg:w-1/2 xl:w-1/3"
-        v-for="item in popularItems"
-        :key="item.city"
-      >
+      <div class="mt-6 lg:mt-10 w-full px-4 lg:w-1/2 xl:w-1/3" v-for="item in popularItems" :key="item.city">
         <DoughyItem :item="item" />
       </div>
     </div>
@@ -37,35 +33,35 @@ export default {
         city: 'Toronto',
         averagePrice: 120,
         propertyCount: 76,
-        imageUrl: '../img/cappucino.jpg',
+        imageUrl: '../images/cappucino.jpg',
         imageAlt: 'Toronto skyline'
       },
       {
         city: 'Malibu',
         averagePrice: 215,
         propertyCount: 43,
-        imageUrl: '/img/latte.jpg',
+        imageUrl: '/images/latte.jpg',
         imageAlt: 'Cliff in Malibu'
       },
       {
         city: 'Chicago',
         averagePrice: 130,
         propertyCount: 115,
-        imageUrl: '/img/coffee_black.jpg',
+        imageUrl: '/images/coffee_black.jpg',
         imageAlt: 'Chicago skyline'
       },
       {
         city: 'Seattle',
         averagePrice: 135,
         propertyCount: 63,
-        imageUrl: '../img/jasmine_tea.jpg',
+        imageUrl: '../images/jasmine_tea.jpg',
         imageAlt: 'Seattle skyline'
       },
       {
         city: 'Colorado',
         averagePrice: 85,
         propertyCount: 47,
-        imageUrl: '../img/black_tea.jpg',
+        imageUrl: '../images/black_tea.jpg',
         imageAlt: 'Lake in Colorado'
       }
     ]

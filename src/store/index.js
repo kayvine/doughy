@@ -10,39 +10,46 @@ export default new Vuex.Store({
     user: {},
     popularItems: [
       {
-        city: 'Toronto',
-        averagePrice: 120,
-        propertyCount: 76,
-        imageUrl: '../img/cappucino.jpg',
+        name: 'Toronto',
+        description: 'Lorem ipsum dolor sit amet adipisicing elit. Voluptatibus quia nulla!',
+        url: '#',
+        imageUrl: '../images/cappucino.jpg',
         imageAlt: 'Toronto skyline'
       },
       {
-        city: 'Malibu',
-        averagePrice: 215,
-        propertyCount: 43,
-        imageUrl: '/img/latte.jpg',
+        name: 'Malibu',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus nulla!',
+        url: '#',
+        imageUrl: '../images/latte.jpg',
         imageAlt: 'Cliff in Malibu'
       },
       {
-        city: 'Chicago',
-        averagePrice: 130,
-        propertyCount: 115,
-        imageUrl: '/img/coffee_black.jpg',
+        name: 'Chicago',
+        description: 'Lorem ipsum dolor sit adipisicing elit. Voluptatibus quia nulla.',
+        url: '#',
+        imageUrl: '../images/coffee_black.jpg',
         imageAlt: 'Chicago skyline'
       },
       {
-        city: 'Seattle',
-        averagePrice: 135,
-        propertyCount: 63,
-        imageUrl: '../img/jasmine_tea.jpg',
+        name: 'Seattle',
+        description: 'Lorem ipsum dolor sit amet consectur adipisicing elit. Voluptatibus quia nulla!',
+        url: '#',
+        imageUrl: '../images/jasmine_tea.jpg',
         imageAlt: 'Seattle skyline'
       },
       {
-        city: 'Colorado',
-        averagePrice: 85,
-        propertyCount: 47,
-        imageUrl: '../img/black_tea.jpg',
+        name: 'Colorado',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia.',
+        url: '#',
+        imageUrl: '../images/black_tea.jpg',
         imageAlt: 'Lake in Colorado'
+      },
+      {
+        name: 'Cookie',
+        description: 'Lorem ipsum dolor sit amet consectur adipisicing. Voluptatibus quia nulla!',
+        url: '#',
+        imageUrl: '../images/cookie.jpg',
+        imageAlt: 'Yummy cookies'
       }
     ]
   },
