@@ -27,6 +27,7 @@
             class="d-nav-burger relative inline-block p-2"
             :class="{ 'is-active': drawer }"
             type="button"
+            aria-label="show menu"
             @click.stop="drawer = !drawer"
           >
             <span class="d-nav-burger-bar"></span>

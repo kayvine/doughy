@@ -10,7 +10,7 @@
         <label for="password"></label>
         <input v-model="password" type="password" name="password" id="password" />
       </div>
-      <button @click="login" class="btn"></button>
+      <button class="btn" type="button" aria-label="login" @click="login"></button>
     </form>
   </div>
 </template>

@@ -4,6 +4,11 @@
   "display": "standalone",
   "icons": [
     {
+      "src": "icons/hot-coffee-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
       "src": "icons/hot-coffee-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
@@ -12,5 +17,6 @@
   "name": "Love for pastry",
   "scope": "/",
   "short_name": "Doughy",
-  "start_url": "/index.html"
+  "start_url": "/index.html",
+  "theme_color": "indigo"
 }
