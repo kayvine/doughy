@@ -72,8 +72,8 @@ export default {
   data: () => ({
     drawer: false,
     navItems: [
-      { title: 'Order', link: '/order' },
-      { title: 'Menu', link: '/menu' },
+      { title: 'Order', link: '/menu' },
+      { title: 'About', link: '/about' },
       { title: 'Gift', link: '/gift' }
     ]
   }),

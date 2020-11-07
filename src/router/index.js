@@ -11,15 +11,17 @@ const routes = [
     component: Home
   },
   {
-    path: '/order',
-    name: 'order',
-    component: () => import(/* webpackChunkName: "order" */ '../views/Order.vue')
-  },
-  {
     path: '/menu',
     name: 'menu',
     component: () => import(/* webpackChunkName: "menu" */ '../views/Menu.vue')
   },
+  {
+    path: '/menu/:category/:name',
+    name: 'product-details',
+    component: () => import(/* webpackChunkName: "product" */ '../views/Product.vue')
+    // props: true
+  },
+
   {
     path: '/gift',
     name: 'gift',

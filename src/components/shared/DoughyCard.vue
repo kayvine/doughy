@@ -5,7 +5,7 @@
       <!-- <div class="font-bold text-gray-700 leading-snug">
         <a :href="url" class="hover:underline">{{ title }}</a>
       </div> -->
-      <div class="font-bold text-xl mb-2">{{ title }}</div>
+      <div class="font-bold text-xl leading-tight mb-2">{{ title }}</div>
       <p class="text-gray-700 text-base h-20">{{ description }}</p>
       <div class="mt-4">
         <a :href="url" class="btn btn-gray rounded-full px-3 py-1 text-sm">See more</a>

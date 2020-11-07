@@ -37,7 +37,7 @@
         <p class="text-gray-600">A selection of great work-friendly cities with lots to see and explore.</p>
         <div class="flex flex-wrap -mx-4">
           <div
-            class="mt-6 lg:mt-10 w-full px-2 lg:px-4 lg:w-1/2 xl:w-1/3"
+            class="mt-6 md:mt-10 w-full px-2 md:px-4 md:w-1/2 lg:w-1/3"
             v-for="item in popularItems"
             :key="item.name"
           >
@@ -53,20 +53,24 @@
       </div>
     </div>
 
+    <DoughyFooter />
+
     <div class="fixed bottom-0 right-0 text-xl z-10 p-4">
-      <router-link to="/order" class="btn btn-indigo rounded-full mt-3">Start an order</router-link>
+      <router-link to="/menu" class="btn btn-indigo rounded-full mt-3">Start an order</router-link>
     </div>
   </div>
 </template>
 
 <script>
 import DoughyCard from '@/components/shared/DoughyCard.vue';
+import DoughyFooter from '@/components/DoughyFooter.vue';
 import store from '@/store';
 
 export default {
   name: 'Home',
   components: {
-    DoughyCard
+    DoughyCard,
+    DoughyFooter
   },
   data: () => ({
     popularItems: store.state.popularItems
