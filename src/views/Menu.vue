@@ -10,15 +10,15 @@
     <p>Specials: afternoon tea, description, price</p>
     <p>Gift: €25 / €50</p> -->
 
-    <div class="mt-4" v-for="category in menu" :key="category.name">
-      <h3 class="text-xl font-semibold leading-snug pb-4">{{ category.title }}</h3>
+    <div class="mt-4" v-for="(items, category) in byCategory" :key="category.name">
+      <h3 class="text-xl font-semibold leading-snug pb-4">{{ category | capitalize }}</h3>
       <hr class="pb-6 border-gray-300" />
       <div class="flex flex-wrap">
-        <div class="mb-6 px-1 w-full lg:w-1/2 xl:w-1/3" v-for="item in category.items" :key="item.title">
+        <div class="mb-6 px-1 w-full lg:w-1/2 xl:w-1/3" v-for="item in items" :key="item.title">
           <router-link
             :to="{
               name: 'product-details',
-              params: { category: category.name, name: item.name }
+              params: { category: category, name: item.name }
             }"
           >
             <DoughyItem :item="item" />
@@ -31,8 +31,8 @@
 
 <script>
 // @ is an alias to /src
-import DoughyItem from '@/components/shared/DoughyItem.vue';
 import store from '@/store';
+import DoughyItem from '@/components/shared/DoughyItem.vue';
 
 export default {
   name: 'Order',
@@ -40,7 +40,15 @@ export default {
     DoughyItem
   },
   data: () => ({
-    menu: store.state.menu
-  })
+    products: store.state.products
+  }),
+  computed: {
+    byCategory() {
+      return this.products.reduce((acc, product) => {
+        (acc[product.category] = acc[product.category] || []).push(product);
+        return acc;
+      }, {});
+    }
+  }
 };
 </script>
