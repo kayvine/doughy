@@ -115,6 +115,10 @@ export default {
     clip: rect(1px, 1px, 1px, 1px) !important;
   }
 
+  .z-1 {
+    z-index: 1;
+  }
+
   @variants hover, focus {
     .filter-none {
       filter: none;

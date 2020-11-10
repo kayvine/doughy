@@ -1,10 +1,44 @@
 <template>
   <div id="cart" class="fixed bottom-0 right-0 left-0 z-10">
-    <div class="w-full bg-indigo-900 text-white flex items-center justify-between px-4">
-      <div class="">
-        Your order
+    <transition name="slide">
+      <div
+        v-if="slideActive"
+        tabindex="-1"
+        role="alert"
+        class="w-full bg-gray-700 text-white flex items-center justify-between p-3 pr-5 lg:p-4 focus:outline-none"
+      >
+        <button
+          @click="$emit('dismiss', false)"
+          aria-label="Dismiss this notification"
+          class="z-1 absolute top-0 right-0 focus:outline-none"
+          style="min-width: 44px; min-height: 44px;"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            class="fill-current text-white absoluteCenter"
+            aria-hidden="true"
+            focusable="false"
+            style="width: 24px; height: 24px; overflow: visible;"
+          >
+            <path
+              d="M13.06 12l5.72-5.72c.292-.292.292-.767 0-1.06-.294-.293-.768-.293-1.06 0L12 10.94 6.28 5.22c-.293-.293-.767-.293-1.06 0-.293.293-.293.768 0 1.06L10.94 12l-5.72 5.72c-.293.292-.293.767 0 1.06.146.146.338.22.53.22s.384-.074.53-.22L12 13.06l5.72 5.72c.145.146.337.22.53.22.19 0 .383-.074.53-.22.292-.293.292-.768 0-1.06L13.06 12z"
+            ></path>
+            <circle
+              class="rounded-full d-icon-hover sm:fill-current"
+              fill="transparent"
+              cx="50%"
+              cy="50%"
+              r="75%"
+            ></circle>
+          </svg>
+        </button>
+        <div>Item added.</div>
       </div>
-      <div class="pt-3 pb-2 pl-6">
+    </transition>
+
+    <div class="relative w-full bg-gray-800 text-white flex items-center justify-between px-4 z-20">
+      <div class="">Checkout your order</div>
+      <span class="pt-3 pb-2 pl-6">
         <button type="button" class="relative flex justify-center focus:outline-none">
           <span class="inline-block pb-2">
             <svg
@@ -19,9 +53,9 @@
             </svg>
           </span>
           <span class="text-sm font-bold absoluteCenter">{{ length }}</span>
-          <span class="hiddenVisually">Open the cart. There are 3 items in cart.</span>
+          <span class="hiddenVisually">Open the cart. There are {{ length }} items in cart.</span>
         </button>
-      </div>
+      </span>
     </div>
   </div>
 </template>
@@ -29,6 +63,26 @@
 <script>
 export default {
   name: 'ShoppingCart',
-  props: { length: Number }
+  props: {
+    length: Number,
+    slideActive: Boolean
+  }
 };
 </script>
+
+<style lang="postcss" scoped>
+.slide-enter-active,
+.slide-leave-active {
+  @apply transition duration-300;
+}
+.slide-enter,
+.slide-leave-to {
+  @apply transform opacity-0 translate-y-12;
+}
+
+.d-icon-hover {
+  opacity: 0.15;
+  transition: all 0.2s ease-out;
+  transform-origin: center;
+}
+</style>

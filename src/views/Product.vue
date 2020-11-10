@@ -43,7 +43,8 @@
 
       <div :class="{ hasCart: hasProducts }" class="fixed bottom-0 right-0 text-xl z-10 p-4">
         <a
-          class="btn btn-indigo rounded-full mt-3"
+          class="btn btn-indigo rounded-full mt-3 cursor-pointer transition duration-300"
+          :class="{ 'transform -translate-y-12': itemAdded }"
           @click.stop="addProductToCart({ id: item.id, option: selected })"
         >
           Add to order
@@ -53,7 +54,12 @@
 
     <div v-else>Product not found</div>
 
-    <ShoppingCart v-show="hasProducts" :length="numberOfProducts" />
+    <ShoppingCart
+      v-show="hasProducts"
+      :length="numberOfProducts"
+      :slideActive="itemAdded"
+      @dismiss="dismiss"
+    />
   </div>
 </template>
 
@@ -74,6 +80,7 @@ export default {
   },
   data: () => ({
     selected: '',
+    itemAdded: false,
     optionError: false
   }),
   computed: {
@@ -94,12 +101,17 @@ export default {
     onChange(event) {
       if (event.target.value) this.optionError = false;
     },
+    dismiss() {
+      this.itemAdded = false;
+    },
     addProductToCart(item) {
       if (!item.option) {
         this.optionError = true;
       } else {
         this.optionError = false;
         store.dispatch('cart/addProductToCart', item);
+        this.itemAdded = true;
+        setTimeout(() => (this.itemAdded = false), 3000);
       }
     }
     // mapActions('cart', ['addProductToCart'])
