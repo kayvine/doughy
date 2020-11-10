@@ -26,6 +26,8 @@
         </div>
       </div>
     </div>
+
+    <ShoppingCart />
   </div>
 </template>
 
@@ -33,11 +35,13 @@
 // @ is an alias to /src
 import store from '@/store';
 import DoughyItem from '@/components/shared/DoughyItem.vue';
+import ShoppingCart from '@/components/ShoppingCart.vue';
 
 export default {
   name: 'Order',
   components: {
-    DoughyItem
+    DoughyItem,
+    ShoppingCart
   },
   data: () => ({
     products: store.state.products

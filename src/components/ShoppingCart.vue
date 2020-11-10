@@ -61,11 +61,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'ShoppingCart',
   props: {
-    length: Number,
     slideActive: Boolean
+  },
+  computed: {
+    ...mapGetters({
+      length: 'cart/numberOfProducts'
+    })
   }
 };
 </script>

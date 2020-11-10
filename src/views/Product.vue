@@ -54,17 +54,12 @@
 
     <div v-else>Product not found</div>
 
-    <ShoppingCart
-      v-show="hasProducts"
-      :length="numberOfProducts"
-      :slideActive="itemAdded"
-      @dismiss="dismiss"
-    />
+    <ShoppingCart v-show="hasProducts" :slideActive="itemAdded" @dismiss="dismiss" />
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+// import { mapGetters } from 'vuex';
 import store from '@/store';
 import ShoppingCart from '@/components/ShoppingCart.vue';
 
@@ -92,10 +87,10 @@ export default {
     },
     hasProducts() {
       return this.numberOfProducts !== 0;
-    },
-    ...mapGetters({
-      numberOfProducts: 'cart/numberOfProducts'
-    })
+    }
+    // ...mapGetters({
+    //   numberOfProducts: 'cart/numberOfProducts'
+    // })
   },
   methods: {
     onChange(event) {
