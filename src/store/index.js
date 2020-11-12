@@ -14,7 +14,7 @@ export default new Vuex.Store({
       {
         id: '567367de-1ea4-46bf-9cbe-ba459b99b9a7',
         name: 'soep',
-        title: 'Soep met brood & boter',
+        title: 'Soep met brood',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus compte quia.',
         category: 'lunch',
         imageUrl: '../images/soep.jpg',
@@ -38,19 +38,19 @@ export default new Vuex.Store({
         imageUrl: '../images/monstruo.jpg',
         options: [
           {
-            title: 'Boterham kaas',
+            title: 'kaas',
             price: 3.5
           },
           {
-            title: 'Boterham kaas & ham',
+            title: 'kaas & ham',
             price: 4.0
           },
           {
-            title: 'Boterham tzatziki & rode biet',
+            title: 'tzatziki & rode biet',
             price: 4.0
           },
           {
-            title: 'Boterham humus & granaatappel',
+            title: 'humus & granaatappel',
             price: 4.0
           }
         ]
@@ -64,11 +64,11 @@ export default new Vuex.Store({
         imageUrl: '../images/croque.jpg',
         options: [
           {
-            title: 'Croque met salade',
+            title: 'met salade',
             price: 9.0
           },
           {
-            title: 'Croque uit het vuistje',
+            title: "uit 't vuistje",
             price: 8.0
           }
         ]
@@ -78,14 +78,9 @@ export default new Vuex.Store({
         name: 'quiche',
         title: 'Quiche',
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus compte quia.',
+        price: 12.0,
         category: 'lunch',
-        imageUrl: '../images/cookie.jpg',
-        options: [
-          {
-            title: 'Quiche met salade',
-            price: 12.0
-          }
-        ]
+        imageUrl: '../images/cookie.jpg'
       },
       {
         id: '8fd5e892-c076-4e97-81c0-ea81d784937e',
@@ -106,6 +101,7 @@ export default new Vuex.Store({
         imageUrl: '../images/jasmine_tea.jpg'
       },
       {
+        id: 'e90f72fe-8a02-4000-919a-1eec0ecfdd0e',
         name: 'cheese-cake',
         title: 'Cheese Cake',
         price: 130,
@@ -113,6 +109,7 @@ export default new Vuex.Store({
         imageUrl: '/images/coffee_black.jpg'
       },
       {
+        id: '64de8cbf-51ff-4334-80c0-355ab7fd2dd3',
         name: 'chocolate-cake',
         title: 'Chocolate Cake',
         price: 135,
@@ -120,6 +117,7 @@ export default new Vuex.Store({
         imageUrl: '../images/ohtilly.jpg'
       },
       {
+        id: '91c92c68-56ab-4e26-a0be-2776b03abcb8',
         name: 'scones',
         title: 'Scones',
         price: 130,
@@ -127,6 +125,7 @@ export default new Vuex.Store({
         imageUrl: '/images/cappucino.jpg'
       },
       {
+        id: '35651d67-f5fe-4084-bd25-ecbd5f30a58b',
         name: 'afternoon-tea',
         title: 'Afternoon Tea',
         price: 25,

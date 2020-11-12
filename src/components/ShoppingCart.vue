@@ -1,11 +1,11 @@
 <template>
-  <div id="cart" class="fixed bottom-0 right-0 left-0 z-10">
+  <div v-if="hasProducts" id="cart" class="fixed bottom-0 right-0 left-0 z-10">
     <transition name="slide">
       <div
         v-if="slideActive"
         tabindex="-1"
         role="alert"
-        class="w-full bg-gray-700 text-white flex items-center justify-between p-3 pr-5 lg:p-4 focus:outline-none"
+        class="w-full bg-gray-700 text-white flex items-center justify-between p-4 pr-8 focus:outline-none"
       >
         <button
           @click="$emit('dismiss', false)"
@@ -32,14 +32,18 @@
             ></circle>
           </svg>
         </button>
-        <div>Item added.</div>
+        <span class="max-w-xs leading-snug">{{ item }} added.</span>
       </div>
     </transition>
 
     <div class="relative w-full bg-gray-800 text-white flex items-center justify-between px-4 z-20">
       <div class="">Checkout your order</div>
       <span class="pt-3 pb-2 pl-6">
-        <button type="button" class="relative flex justify-center focus:outline-none">
+        <button
+          type="button"
+          class="relative flex justify-center focus:outline-none"
+          @click="$router.push({ name: 'cart' })"
+        >
           <span class="inline-block pb-2">
             <svg
               class="w-8 h-8 fill-current text-indigo-500"
@@ -66,12 +70,16 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'ShoppingCart',
   props: {
-    slideActive: Boolean
+    slideActive: Boolean,
+    item: String
   },
   computed: {
     ...mapGetters({
       length: 'cart/numberOfProducts'
-    })
+    }),
+    hasProducts() {
+      return this.length !== 0;
+    }
   }
 };
 </script>

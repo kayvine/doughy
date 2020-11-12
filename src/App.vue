@@ -1,22 +1,11 @@
 <template>
   <div id="app" class="antialiased">
-    <DoughyHeader />
-
-    <main id="content">
-      <router-view />
-    </main>
+    <router-view />
   </div>
 </template>
 
 <script>
-import DoughyHeader from '@/components/DoughyHeader.vue';
-
-export default {
-  name: 'App',
-  components: {
-    DoughyHeader
-  }
-};
+export default {};
 </script>
 
 <style lang="postcss">
@@ -81,10 +70,6 @@ export default {
   }
   .btn-green:active {
     @apply bg-green-600;
-  }
-
-  .d-link {
-    @apply underline;
   }
 }
 

@@ -6,18 +6,25 @@ const state = () => ({
 
 const getters = {
   cartProducts: (state, getters, rootState) => {
-    return state.items.map(({ id, quantity }) => {
+    return state.items.map(({ id, option, quantity }) => {
       const product = rootState.products.find(product => product.id === id);
       return {
+        id: product.id,
         title: product.title,
-        price: product.price,
+        option: option ? option.title : '',
+        imageUrl: product.imageUrl,
+        price: option ? option.price : product.price,
         quantity
       };
     });
   },
+
   numberOfProducts: (state, getters) => {
-    return getters.cartProducts.length;
+    return getters.cartProducts.reduce((total, product) => {
+      return total + product.quantity;
+    }, 0);
   },
+
   cartTotalPrice: (state, getters) => {
     return getters.cartProducts.reduce((total, product) => {
       return total + product.price * product.quantity;
@@ -26,18 +33,29 @@ const getters = {
 };
 
 const mutations = {
-  pushProductToCart(state, { id }) {
+  pushProductToCart(state, { id, option }) {
     state.items.push({
       id,
+      option,
       quantity: 1
     });
   },
 
-  // incrementItemQuantity(state, { id }) {
-  // Add option check
-  //   const cartItem = state.items.find(item => item.id === id);
-  //   cartItem.quantity++;
-  // },
+  incrementItemQuantity(state, cartItem) {
+    // const cartItem = state.items.find(item => item.id === id);
+    cartItem.quantity++;
+  },
+
+  decrementItemQuantity(state, cartItem) {
+    // const cartItem = state.items.find(item => item.id === id);
+    cartItem.quantity--;
+  },
+
+  removeFromCart(state, cartItem) {
+    const i = state.items.indexOf(cartItem);
+    const filtered = state.items.filter((value, index) => index !== i);
+    state.items = filtered;
+  },
 
   setCartItems(state, { items }) {
     state.items = items;
@@ -66,10 +84,36 @@ const actions = {
   // },
 
   // shape: [{ id, option?, quantity }]
-  addProductToCart({ commit }, item) {
-    console.log(JSON.stringify(item));
+  addProductToCart({ state, commit }, product) {
+    console.log(JSON.stringify(product));
     commit('setCheckoutStatus', null);
-    commit('pushProductToCart', { id: item.id });
+    const cartItem = state.items.find(item => item.id === product.id && item.option === product.option);
+    if (!cartItem) {
+      commit('pushProductToCart', product);
+    } else {
+      commit('incrementItemQuantity', cartItem);
+    }
+  },
+
+  removeFromCart({ state, commit }, product) {
+    commit('setCheckoutStatus', null);
+    let cartItem;
+    if (product.option) {
+      cartItem = state.items.find(item => item.id === product.id && item.option.title === product.option);
+    } else {
+      cartItem = state.items.find(item => item.id === product.id);
+    }
+    if (cartItem) {
+      if (cartItem.quantity > 1) {
+        console.log('decrementItemQuantity');
+        commit('decrementItemQuantity', cartItem);
+      } else {
+        console.log('removeFromCart');
+        commit('removeFromCart', cartItem);
+      }
+    } else {
+      console.log('FAIL');
+    }
   }
 };
 

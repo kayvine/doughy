@@ -6,7 +6,7 @@
           Need to talk to someone?
           <br class="hidden lg:inline" />
           <span class="text-indigo-500">
-            <a class="d-link" href="#">Email us</a> or <a class="d-link" href="#">message us</a>.
+            <a class="underline" href="#">Email us</a> or <a class="underline" href="#">message us</a>.
           </span>
         </h3>
       </div>

@@ -2,7 +2,10 @@
   <header class="relative shadow z-20" :class="{ 'pb-16': drawer }">
     <nav id="nav">
       <div class="md:container flex items-center w-screen h-16 bg-white p-2" :class="{ fixed: drawer }">
-        <a @click.stop="goToPage('/')" class="text-lg font-bold uppercase text-gray-900 pl-2 mr-2">
+        <a
+          @click.stop="goToPage('/')"
+          class="text-lg font-bold uppercase text-gray-900 pl-2 mr-2 sm:cursor-pointer"
+        >
           <span>Doughy</span><span class="text-indigo-500">PWA</span>
         </a>
         <div class="flex flex-grow items-baseline">
