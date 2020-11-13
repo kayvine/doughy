@@ -4,7 +4,7 @@
 
     <main id="content">
       <div class="flex">
-        <div class="px-6 py-8 max-w-md mx-auto sm:max-w-xl lg:max-w-full lg:w-1/2 lg:py-24 lg:px-12">
+        <div class="px-6 py-8 max-w-md mx-auto sm:max-w-2xl lg:max-w-full lg:w-1/2 lg:py-24 lg:px-12">
           <div class="xl:max-w-lg xl:ml-auto">
             <div class="flex items-center">
               <img class="h-10 mr-4" src="/images/hot-coffee.png" alt="Hot-coffee" />
@@ -35,12 +35,12 @@
       </div>
 
       <div class="bg-gray-100">
-        <div class="px-6 py-8 max-w-md mx-auto sm:max-w-xl lg:max-w-6xl lg:px-12">
+        <div class="px-6 py-8 max-w-md mx-auto sm:max-w-2xl lg:max-w-6xl lg:px-12">
           <h2 class="text-xl text-gray-900">Popular destinations</h2>
           <p class="text-gray-600">A selection of great work-friendly cities with lots to see and explore.</p>
           <div class="flex flex-wrap -mx-4">
             <div
-              class="mt-6 md:mt-10 w-full px-2 md:px-4 md:w-1/2 lg:w-1/3"
+              class="mt-6 md:mt-10 w-full px-2 sm:px-4 sm:w-1/2 lg:w-1/3"
               v-for="item in popularItems"
               :key="item.name"
             >

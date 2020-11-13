@@ -26,7 +26,7 @@
       </div>
 
       <div class="d-c-content py-4 lg:p-4">
-        <div v-if="numberOfProducts">
+        <template v-if="numberOfProducts">
           <h2 class="hidden" tabindex="-1">Items</h2>
           <div class="mx-auto pb-48">
             <div
@@ -35,11 +35,15 @@
               class="w-full flex flex-col bg-white p-4 border-b border-gray-300 md:border-none md:mb-5 md:shadow md:rounded"
             >
               <DoughyItem :product="item" />
-              <p v-if="item.option" class="pl-6 pb-3 ml-20">{{ item.option }}</p>
+              <p class="h-8 pl-6 pb-2 ml-20 lg:ml-24">{{ item.option }}</p>
               <span class="text-indigo-500 ml-auto pr-2 pb-3">
-                <a @click="removeItem(item)" class="underline">remove</a>
+                <a @click="removeItem(item)" class="underline cursor-pointer">remove</a>
               </span>
-              <!-- <span>maybe add function to increase/decrease quantity</span> -->
+              <!-- <span class="flex sm:w-1/3 text-indigo-500 ml-20 lg:ml-24 pr-2 pb-3"> -->
+              <!-- >maybe add function to increase/decrease quantity -->
+              <!-- <a class="underline ml-auto cursor-pointer">-</a> -->
+              <!-- <a class="underline ml-auto cursor-pointer">+</a> -->
+              <!-- </span> -->
             </div>
           </div>
 
@@ -48,7 +52,7 @@
               <a class="btn btn-indigo rounded-full mt-3 cursor-pointer">Continue</a>
             </div>
           </span>
-        </div>
+        </template>
 
         <div v-else class="flex flex-col px-12 mt-6">
           <div class="text-2xl">Start your next order</div>
@@ -83,13 +87,10 @@ export default {
   computed: mapGetters('cart', ['cartProducts', 'numberOfProducts', 'cartTotalPrice']),
   methods: {
     productById(id) {
-      console.log(id);
-      console.log(store.getters.productById(id));
       return store.getters.productById(id);
     },
     removeItem(item) {
       store.dispatch('cart/removeFromCart', item);
-      console.log(`${JSON.stringify(item)} removed`);
     }
   }
 };

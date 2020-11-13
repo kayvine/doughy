@@ -1,10 +1,10 @@
 <template>
   <footer id="page-footer" class="pb-32">
     <div class="bg-gray-100">
-      <div class="px-6 py-8 max-w-md mx-auto sm:max-w-xl lg:max-w-6xl sm:py-16 lg:px-12">
+      <div class="px-6 py-8 max-w-md mx-auto sm:max-w-2xl lg:max-w-6xl sm:py-16 lg:px-12">
         <h3 class="text-xl font-bold text-gray-900 leading-tight sm:text-3xl">
           Need to talk to someone?
-          <br class="hidden lg:inline" />
+          <br class="hidden md:inline" />
           <span class="text-indigo-500">
             <a class="underline" href="#">Email us</a> or <a class="underline" href="#">message us</a>.
           </span>
@@ -12,7 +12,7 @@
       </div>
     </div>
 
-    <div class="flex flex-wrap px-6 py-8 max-w-md mx-auto sm:max-w-xl lg:max-w-6xl lg:px-12">
+    <div class="flex flex-wrap px-6 py-8 max-w-md mx-auto sm:max-w-2xl lg:max-w-6xl lg:px-12">
       <ul class="d-footer-nav w-full md:w-1/3 md:mt-4 md:text-xl">
         <li>Workcation</li>
         <li>Rentals</li>
