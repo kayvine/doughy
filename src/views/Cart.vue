@@ -20,15 +20,15 @@
         </div>
 
         <div class="my-auto p-4 lg:px-16 lg">
-          <h1 class="text-2xl font-semibold">Review Order ({{ numberOfProducts }})</h1>
-          <p class="text-md text-indigo-200 mb-1">Small explanation here</p>
+          <h1 class="text-2xl font-semibold md:text-4xl">Review Order ({{ numberOfProducts }})</h1>
+          <p class="text-indigo-200 mb-1 md:text-lg">Small explanation here</p>
         </div>
       </div>
 
-      <div class="d-c-content py-4 lg:p-4">
+      <div class="d-c-content md:bg-gray-100 py-4 lg:p-4">
         <template v-if="numberOfProducts">
           <h2 class="hidden" tabindex="-1">Items</h2>
-          <div class="mx-auto pb-48">
+          <div class="maxWidth mx-auto pb-32">
             <div
               v-for="(item, index) in cartProducts"
               :key="index"
@@ -95,21 +95,3 @@ export default {
   }
 };
 </script>
-
-<style lang="postcss" scoped>
-@media (min-width: 1024px) {
-  .d-c-header {
-    width: 40vw;
-  }
-
-  .d-c-content {
-    margin-left: 40vw;
-  }
-}
-
-@media (min-width: 768px) {
-  .d-c-content > div {
-    max-width: 600px;
-  }
-}
-</style>

@@ -82,6 +82,22 @@ export default {};
   z-index: 1;
 }
 
+@media (min-width: 1024px) {
+  .d-c-header {
+    width: 40vw;
+  }
+
+  .d-c-content {
+    margin-left: 40vw;
+  }
+}
+
+@media (min-width: 768px) {
+  .d-c-content > .maxWidth {
+    max-width: 600px;
+  }
+}
+
 @layer utilities {
   .absoluteCenter {
     position: absolute;

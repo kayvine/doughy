@@ -50,7 +50,7 @@
           </div>
         </div>
 
-        <div :class="{ hasCart: numberOfProducts }" class="fixed bottom-0 right-0 text-xl z-10 p-4">
+        <div :class="{ hasCart: numberOfProducts }" class="fixed bottom-0 right-0 text-xl z-10 p-4 lg:p-8">
           <a
             class="btn btn-indigo rounded-full mt-3 cursor-pointer transition duration-300"
             :class="{ 'transform -translate-y-12': itemAdded }"
@@ -61,7 +61,9 @@
         </div>
       </div>
 
-      <div v-else>Product not found</div>
+      <div v-else class="container py-8">
+        <p class="text-lg">Product not found</p>
+      </div>
 
       <ShoppingCart :slideActive="itemAdded" :item="selection" @dismiss="dismissAlert" />
     </main>
