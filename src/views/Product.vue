@@ -5,48 +5,58 @@
     <main id="content">
       <div v-if="product" class="pb-32">
         <img
-          class="w-full max-h-full object-cover object-center"
+          class="w-full max-h-full object-cover object-center sm:hidden"
           :src="product.imageUrl"
           :alt="product.title"
         />
 
-        <div class="container py-8">
-          <div class="text-gray-600 text-sm tracking-wide pb-4">
-            <router-link to="/menu">Menu</router-link>
-            <span aria-hidden="true"> / </span>
-            {{ product.category | capitalize }}
-            <span aria-hidden="true"> / </span>
-            {{ product.title }}
+        <div
+          class="px-6 py-8 grid sm:grid-cols-2 gap-6 lg:gap-12 mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-5xl lg:px-12"
+        >
+          <div class="hidden sm:block w-full max-w-2xl mx-auto">
+            <img class="w-full rounded-full shadow-xl" :src="product.imageUrl" :alt="product.title" />
           </div>
-
-          <h2 class="text-3xl font-semibold leading-snug pb-4">{{ product.title }}</h2>
-
-          <div v-if="product.options" class="w-full md:w-1/3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-600 text-xs font-bold mb-px" for="options">
-              Size
-            </label>
-            <div class="relative mb-3">
-              <select
-                v-model="selected"
-                @change="onChange($event)"
-                id="options"
-                class="block appearance-none w-full border-b border-gray-300 text-gray-700 py-2 px-px pr-8 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
-                :class="[optionError ? 'border-red-500' : 'border-gray-300']"
-              >
-                <option disabled value="">Please select one</option>
-                <option v-for="option in product.options" :key="option.title" :value="option">
-                  {{ option.title | capitalize }} &mdash; €{{ option.price }}
-                </option>
-              </select>
-              <div
-                class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
-              >
-                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                </svg>
-              </div>
+          <div class="md:mt-16">
+            <div class="text-gray-600 text-sm tracking-wide pb-4">
+              <router-link to="/menu">Menu</router-link>
+              <span aria-hidden="true"> / </span>
+              {{ product.category | capitalize }}
+              <span aria-hidden="true"> / </span>
+              {{ product.title }}
             </div>
-            <p v-if="optionError" class="text-red-500 text-xs italic">Please select an option</p>
+
+            <h2 class="text-3xl font-semibold leading-snug pb-4">{{ product.title }}</h2>
+
+            <div v-if="product.options" class="w-full mb-6">
+              <label
+                class="block uppercase tracking-wide text-gray-600 text-xs font-bold mb-px"
+                for="options"
+              >
+                Size
+              </label>
+              <div class="relative mb-3">
+                <select
+                  v-model="selected"
+                  @change="onChange($event)"
+                  id="options"
+                  class="block appearance-none bg-white w-full border-b border-gray-300 text-gray-700 py-2 px-px pr-8 focus:outline-none focus:border-indigo-500"
+                  :class="[optionError ? 'border-red-500' : 'border-gray-300']"
+                >
+                  <option disabled value="">Please select one</option>
+                  <option v-for="option in product.options" :key="option.title" :value="option">
+                    {{ option.title | capitalize }} &mdash; €{{ option.price }}
+                  </option>
+                </select>
+                <div
+                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                >
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  </svg>
+                </div>
+              </div>
+              <p v-if="optionError" class="text-red-500 text-xs italic">Please select an option</p>
+            </div>
           </div>
         </div>
 
