@@ -10,13 +10,11 @@
           :alt="product.title"
         />
 
-        <div
-          class="px-6 py-8 grid sm:grid-cols-2 gap-6 lg:gap-12 mx-auto sm:max-w-2xl md:max-w-3xl lg:max-w-5xl lg:px-12"
-        >
-          <div class="hidden sm:block w-full max-w-2xl mx-auto">
+        <div class="px-6 py-8 grid sm:grid-cols-2 gap-6 lg:gap-12 mx-auto lg:max-w-5xl">
+          <div class="hidden sm:block w-full md:max-w-md md:ml-auto">
             <img class="w-full rounded-full shadow-xl" :src="product.imageUrl" :alt="product.title" />
           </div>
-          <div class="md:mt-16">
+          <div class="mt-4 md:mt-16">
             <div class="text-gray-600 text-sm tracking-wide pb-4">
               <router-link to="/menu">Menu</router-link>
               <span aria-hidden="true"> / </span>

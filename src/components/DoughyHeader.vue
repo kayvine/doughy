@@ -1,5 +1,5 @@
 <template>
-  <header class="relative w-screen shadow z-20" :class="{ 'pb-16': drawer }">
+  <header class="relative w-full shadow z-20" :class="{ 'pb-16': drawer }">
     <nav id="nav">
       <div class="md:container flex items-center h-16 min-w-full bg-white p-2" :class="{ fixed: drawer }">
         <a
