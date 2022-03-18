@@ -13,28 +13,28 @@ const routes = [
   {
     path: '/menu',
     name: 'menu',
-    component: () => import(/* webpackChunkName: "menu" */ '../views/Menu.vue')
+    component: () => import('../views/Menu.vue')
   },
   {
     path: '/menu/:category/:name',
     name: 'product-details',
-    component: () => import(/* webpackChunkName: "product" */ '../views/Product.vue')
+    component: () => import('../views/Product.vue')
     // props: true
   },
   {
     path: '/menu/cart',
     name: 'cart',
-    component: () => import(/* webpackChunkName: "product" */ '../views/Cart.vue')
+    component: () => import('../views/Cart.vue')
   },
   {
     path: '/gift',
     name: 'gift',
-    component: () => import(/* webpackChunkName: "gift" */ '../views/Gift.vue')
+    component: () => import('../views/Gift.vue')
   },
   {
     path: '/user',
     name: 'User',
-    component: () => import(/* webpackChunkName: "user" */ '../views/User.vue'),
+    component: () => import('../views/User.vue'),
     meta: { requiredAuth: true }
   },
   {
@@ -43,13 +43,13 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import('../views/About.vue')
   },
   {
     path: '/404',
     alias: '*',
     name: 'notFound',
-    component: () => import(/* webpackChunkName: "notFound" */ '../views/NotFound.vue')
+    component: () => import('../views/NotFound.vue')
   }
 ];
 

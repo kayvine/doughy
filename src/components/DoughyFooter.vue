@@ -1,6 +1,6 @@
 <template>
   <footer id="page-footer" class="pb-32">
-    <div class="bg-gray-100">
+    <div class="bg-gray-50">
       <div class="px-6 py-8 max-w-md mx-auto sm:max-w-2xl lg:max-w-6xl sm:py-16 lg:px-12">
         <h3 class="text-xl font-bold text-gray-900 leading-tight sm:text-3xl">
           Need to talk to someone?
@@ -13,7 +13,7 @@
     </div>
 
     <div class="flex flex-wrap px-6 py-8 max-w-md mx-auto sm:max-w-2xl lg:max-w-6xl lg:px-12">
-      <ul class="d-footer-nav w-full md:w-1/3 md:mt-4 md:text-xl">
+      <ul class="w-full text-gray-900 md:w-1/3 md:mt-4 md:text-xl md:leading-normal">
         <li>Workcation</li>
         <li>Rentals</li>
         <li>Beautiful</li>
@@ -27,9 +27,9 @@
 
       <div class="w-full mt-6 md:w-1/3">
         <div class="flex justify-start md:justify-end">
-          <a href="#" class="mr-3"><img class="h-8" src="/images/instagram.svg" alt="Instagram"/></a>
-          <a href="#" class="mr-3"><img class="h-8" src="/images/facebook.svg" alt="Facebook"/></a>
-          <a href="#" class=""><img class="h-8" src="/images/twitter.svg" alt="Twitter"/></a>
+          <a href="#" class="mr-3"><img class="h-8" src="/images/instagram.svg" alt="Instagram" /></a>
+          <a href="#" class="mr-3"><img class="h-8" src="/images/facebook.svg" alt="Facebook" /></a>
+          <a href="#" class=""><img class="h-8" src="/images/twitter.svg" alt="Twitter" /></a>
         </div>
       </div>
 
@@ -40,15 +40,6 @@
 
 <script>
 export default {
-  name: 'DoughyFooter'
+  name: 'DoughyFooter',
 };
 </script>
-
-<style lang="postcss">
-.d-footer-nav {
-  @apply text-gray-900;
-}
-.d-footer-nav li {
-  @apply block mt-1;
-}
-</style>

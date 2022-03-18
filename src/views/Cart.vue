@@ -9,7 +9,7 @@
               class="inline-block align-middle fill-current text-white pr-1"
               aria-hidden="true"
               focusable="false"
-              style="width: 24px; height: 24px; overflow: visible;"
+              style="width: 24px; height: 24px; overflow: visible"
             >
               <path
                 d="M15.098 5.78c.292-.293.292-.767 0-1.06-.293-.293-.768-.293-1.06 0L7.62 11.137c-.293.293-.293.768 0 1.06l6.52 6.52c.292.293.767.293 1.06 0 .293-.293.293-.768 0-1.06l-5.99-5.99L15.1 5.78z"
@@ -63,7 +63,7 @@
           <div class="mb-10">
             <router-link
               to="/menu"
-              class="btn small rounded-full text-indigo-500 bg-transparent border border-indigo-600 mt-6"
+              class="btn small rounded-full text-indigo-500 bg-transparent border border-indigo-500 mt-6"
             >
               Add items
             </router-link>
@@ -82,7 +82,7 @@ import DoughyItem from '@/components/shared/DoughyItem.vue';
 export default {
   name: 'Cart',
   components: {
-    DoughyItem
+    DoughyItem,
   },
   computed: mapGetters('cart', ['cartProducts', 'numberOfProducts', 'cartTotalPrice']),
   methods: {
@@ -91,7 +91,7 @@ export default {
     },
     removeItem(item) {
       store.dispatch('cart/removeFromCart', item);
-    }
-  }
+    },
+  },
 };
 </script>

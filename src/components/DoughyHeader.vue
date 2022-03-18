@@ -77,8 +77,8 @@ export default {
     navItems: [
       { title: 'Order', link: '/menu' },
       { title: 'About', link: '/about' },
-      { title: 'Gift', link: '/gift' }
-    ]
+      { title: 'Gift', link: '/gift' },
+    ],
   }),
   methods: {
     goToPage(path) {
@@ -86,8 +86,8 @@ export default {
       if (this.$route.path !== path) {
         this.$router.push({ path });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

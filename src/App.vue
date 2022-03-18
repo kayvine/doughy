@@ -13,11 +13,9 @@ export default {};
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@layer base {
-  /* @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;700&display=swap'); */
-  /* @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&display=swap'); */
-  @import url('https://fonts.googleapis.com/css2?family=Nunito&family=Playfair+Display&display=swap');
-}
+/* @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@400;600;700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Playfair+Display&display=swap');
 
 @layer components {
   .btn {
@@ -25,7 +23,7 @@ export default {};
   }
 
   .btn:focus {
-    @apply outline-none shadow-outline;
+    @apply outline-none;
   }
 
   .btn.small {
@@ -120,13 +118,11 @@ export default {};
     z-index: 1;
   }
 
-  @variants hover, focus {
-    .filter-none {
-      filter: none;
-    }
-    .filter-grayscale {
-      filter: grayscale(100%);
-    }
+  .filter-none {
+    filter: none;
+  }
+  .filter-grayscale {
+    filter: grayscale(100%);
   }
 }
 </style>

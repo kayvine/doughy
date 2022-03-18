@@ -2,6 +2,7 @@
   "background_color": "WhiteSmoke",
   "description": "Order for take-out. Or look at our tasty menu.",
   "display": "standalone",
+  "display_override": ["window-controls-overlay"],
   "icons": [
     {
       "src": "icons/hot-coffee-512x512.png",

@@ -93,13 +93,13 @@ export default {
   // }
   components: {
     DoughyHeader,
-    ShoppingCart
+    ShoppingCart,
   },
   data: () => ({
     selected: '',
     itemAdded: false,
     selection: '',
-    optionError: false
+    optionError: false,
   }),
   computed: {
     name() {
@@ -109,8 +109,8 @@ export default {
       return store.getters.productByName(this.name);
     },
     ...mapGetters({
-      numberOfProducts: 'cart/numberOfProducts'
-    })
+      numberOfProducts: 'cart/numberOfProducts',
+    }),
   },
   methods: {
     onChange(event) {
@@ -129,12 +129,12 @@ export default {
         this.itemAdded = true;
         setTimeout(() => (this.itemAdded = false), 3000);
       }
-    }
+    },
     // mapActions('cart', ['addProductToCart'])
   },
   created() {
     // this.item = store.getters.productByName(this.name);
-  }
+  },
 };
 </script>
 
