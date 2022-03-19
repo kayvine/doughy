@@ -7,14 +7,14 @@
         <h1 class="text-3xl font-bold">Menu</h1>
 
         <div class="mt-4" v-for="(products, category) in byCategory" :key="category.name">
-          <h3 class="text-xl font-semibold leading-snug pb-4">{{ category | capitalize }}</h3>
+          <h2 class="text-xl font-semibold leading-snug pb-4">{{ category | capitalize }}</h2>
           <hr class="pb-6 border-gray-300" />
           <div class="flex flex-wrap">
-            <div class="mb-6 px-1 w-full lg:w-1/2" v-for="product in products" :key="product.title">
+            <div class="mb-6 px-1 w-full md:w-1/2" v-for="product in products" :key="product.title">
               <router-link
                 :to="{
                   name: 'product-details',
-                  params: { category: category, name: product.name }
+                  params: { category: category, name: product.name },
                 }"
               >
                 <DoughyItem :product="product" />
@@ -41,10 +41,10 @@ export default {
   components: {
     DoughyHeader,
     DoughyItem,
-    ShoppingCart
+    ShoppingCart,
   },
   data: () => ({
-    products: store.state.products
+    products: store.state.products,
   }),
   computed: {
     byCategory() {
@@ -52,7 +52,7 @@ export default {
         (acc[product.category] = acc[product.category] || []).push(product);
         return acc;
       }, {});
-    }
-  }
+    },
+  },
 };
 </script>

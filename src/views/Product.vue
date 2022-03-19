@@ -58,7 +58,10 @@
           </div>
         </div>
 
-        <div :class="{ hasCart: numberOfProducts }" class="fixed bottom-0 right-0 text-xl z-10 p-4 lg:p-8">
+        <div
+          :class="[numberOfProducts ? 'bottom-[60px]' : 'bottom-0']"
+          class="fixed right-0 text-xl z-10 p-4 lg:p-8"
+        >
           <a
             class="btn btn-indigo rounded-full mt-3 cursor-pointer transition duration-300"
             :class="{ 'transform -translate-y-12': itemAdded }"
@@ -86,11 +89,6 @@ import ShoppingCart from '@/components/ShoppingCart.vue';
 
 export default {
   name: 'Product',
-  // props: ['item'],
-  // beforeRouteUpdate(to, from, next) {
-  // react to route changes...
-  // don't forget to call next()
-  // }
   components: {
     DoughyHeader,
     ShoppingCart,
@@ -130,16 +128,6 @@ export default {
         setTimeout(() => (this.itemAdded = false), 3000);
       }
     },
-    // mapActions('cart', ['addProductToCart'])
-  },
-  created() {
-    // this.item = store.getters.productByName(this.name);
   },
 };
 </script>
-
-<style lang="postcss">
-.hasCart {
-  bottom: 60px !important;
-}
-</style>
