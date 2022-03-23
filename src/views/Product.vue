@@ -10,9 +10,15 @@
           :alt="product.title"
         />
 
-        <div class="px-6 py-8 grid sm:grid-cols-2 gap-6 lg:gap-12 mx-auto lg:max-w-5xl">
+        <div
+          class="px-6 py-8 grid sm:grid-cols-2 gap-6 lg:gap-12 mx-auto lg:max-w-5xl"
+        >
           <div class="hidden sm:block w-full md:max-w-md md:ml-auto">
-            <img class="w-full rounded-full shadow-xl" :src="product.imageUrl" :alt="product.title" />
+            <img
+              class="w-full rounded-full shadow-xl"
+              :src="product.imageUrl"
+              :alt="product.title"
+            />
           </div>
           <div class="mt-4 md:mt-16">
             <div class="text-gray-600 text-sm tracking-wide pb-4">
@@ -23,7 +29,9 @@
               {{ product.title }}
             </div>
 
-            <h2 class="text-3xl font-semibold leading-snug pb-4">{{ product.title }}</h2>
+            <h2 class="text-3xl font-semibold leading-snug pb-4">
+              {{ product.title }}
+            </h2>
 
             <div v-if="product.options" class="w-full mb-6">
               <label
@@ -34,26 +42,38 @@
               </label>
               <div class="relative mb-3">
                 <select
-                  v-model="selected"
-                  @change="onChange($event)"
                   id="options"
+                  v-model="selected"
                   class="block appearance-none bg-white w-full border-b border-gray-300 text-gray-700 py-2 px-px pr-8 focus:outline-none focus:border-indigo-500"
                   :class="[optionError ? 'border-red-500' : 'border-gray-300']"
+                  @change="onChange($event)"
                 >
                   <option disabled value="">Please select one</option>
-                  <option v-for="option in product.options" :key="option.title" :value="option">
+                  <option
+                    v-for="option in product.options"
+                    :key="option.title"
+                    :value="option"
+                  >
                     {{ option.title | capitalize }} &mdash; €{{ option.price }}
                   </option>
                 </select>
                 <div
                   class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
                 >
-                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                  <svg
+                    class="fill-current h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                    />
                   </svg>
                 </div>
               </div>
-              <p v-if="optionError" class="text-red-500 text-xs italic">Please select an option</p>
+              <p v-if="optionError" class="text-red-500 text-xs italic">
+                Please select an option
+              </p>
             </div>
           </div>
         </div>
@@ -64,7 +84,7 @@
         >
           <a
             class="btn btn-indigo rounded-full mt-3 cursor-pointer transition duration-300"
-            :class="{ 'transform -translate-y-12': itemAdded }"
+            :class="{ 'transform -translate-y-12': showItem }"
             @click.stop="addProductToCart({ id: product.id, option: selected })"
           >
             Add to order
@@ -76,7 +96,11 @@
         <p class="text-lg">Product not found</p>
       </div>
 
-      <ShoppingCart :slideActive="itemAdded" :item="selection" @dismiss="dismissAlert" />
+      <ShoppingCart
+        :slide-active="showItem"
+        :item="selection"
+        @dismiss="dismissAlert"
+      />
     </main>
   </div>
 </template>
@@ -88,14 +112,14 @@ import DoughyHeader from '@/components/DoughyHeader.vue';
 import ShoppingCart from '@/components/ShoppingCart.vue';
 
 export default {
-  name: 'Product',
+  name: 'ProductPage',
   components: {
     DoughyHeader,
     ShoppingCart,
   },
   data: () => ({
     selected: '',
-    itemAdded: false,
+    showItem: false,
     selection: '',
     optionError: false,
   }),
@@ -115,7 +139,7 @@ export default {
       if (event.target.value) this.optionError = false;
     },
     dismissAlert() {
-      this.itemAdded = false;
+      this.showItem = false;
     },
     addProductToCart(item) {
       if (this.product.options && !item.option) {
@@ -123,9 +147,11 @@ export default {
       } else {
         this.optionError = false;
         store.dispatch('cart/addProductToCart', item);
-        this.selection = `${this.product.title} ${item.option ? ' ' + item.option.title : ''}`;
-        this.itemAdded = true;
-        setTimeout(() => (this.itemAdded = false), 3000);
+        this.selection = `${this.product.title} ${
+          item.option ? ' ' + item.option.title : ''
+        }`;
+        this.showItem = true;
+        setTimeout(() => (this.showItem = false), 3000);
       }
     },
   },

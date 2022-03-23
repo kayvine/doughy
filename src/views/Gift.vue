@@ -14,9 +14,9 @@
 <script>
 import DoughyHeader from '@/components/DoughyHeader.vue';
 export default {
-  name: 'Gift',
+  name: 'GiftPage',
   components: {
-    DoughyHeader
-  }
+    DoughyHeader,
+  },
 };
 </script>

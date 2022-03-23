@@ -8,10 +8,10 @@
         class="w-full bg-gray-700 text-white flex items-center justify-between p-4 pr-8 focus:outline-none"
       >
         <button
-          @click="$emit('dismiss', false)"
           aria-label="Dismiss this notification"
           class="z-1 absolute top-0 right-0 focus:outline-none"
           style="min-width: 44px; min-height: 44px"
+          @click="$emit('dismiss', false)"
         >
           <svg
             viewBox="0 0 24 24"
@@ -36,7 +36,9 @@
       </div>
     </transition>
 
-    <div class="relative w-full bg-gray-800 text-white flex items-center justify-between px-4 z-20">
+    <div
+      class="relative w-full bg-gray-800 text-white flex items-center justify-between px-4 z-20"
+    >
       <div class="">Checkout your order</div>
       <span class="pt-3 pb-2 pl-6">
         <button
@@ -57,7 +59,9 @@
             </svg>
           </span>
           <span class="text-sm font-bold absoluteCenter">{{ length }}</span>
-          <span class="hiddenVisually">Open the cart. There are {{ length }} items in cart.</span>
+          <span class="hiddenVisually"
+            >Open the cart. There are {{ length }} items in cart.</span
+          >
         </button>
       </span>
     </div>
@@ -71,7 +75,10 @@ export default {
   name: 'ShoppingCart',
   props: {
     slideActive: Boolean,
-    item: String,
+    item: {
+      type: String,
+      default: null,
+    },
   },
   computed: {
     ...mapGetters({

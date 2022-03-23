@@ -6,11 +6,21 @@
       <div class="px-2">
         <h1 class="text-3xl font-bold">Menu</h1>
 
-        <div class="mt-4" v-for="(products, category) in byCategory" :key="category.name">
-          <h2 class="text-xl font-semibold leading-snug pb-4">{{ category | capitalize }}</h2>
+        <div
+          v-for="(products, category) in productsByCategory"
+          :key="category.name"
+          class="mt-4"
+        >
+          <h2 class="text-xl font-semibold leading-snug pb-4">
+            {{ category | capitalize }}
+          </h2>
           <hr class="pb-6 border-gray-300" />
           <div class="flex flex-wrap">
-            <div class="mb-6 px-1 w-full md:w-1/2" v-for="product in products" :key="product.title">
+            <div
+              v-for="product in products"
+              :key="product.title"
+              class="mb-6 px-1 w-full md:w-1/2"
+            >
               <router-link
                 :to="{
                   name: 'product-details',
@@ -37,18 +47,18 @@ import DoughyItem from '@/components/shared/DoughyItem.vue';
 import ShoppingCart from '@/components/ShoppingCart.vue';
 
 export default {
-  name: 'Order',
+  name: 'MenuPage',
   components: {
     DoughyHeader,
     DoughyItem,
     ShoppingCart,
   },
   data: () => ({
-    products: store.state.products,
+    allProducts: store.state.products,
   }),
   computed: {
-    byCategory() {
-      return this.products.reduce((acc, product) => {
+    productsByCategory() {
+      return this.allProducts.reduce((acc, product) => {
         (acc[product.category] = acc[product.category] || []).push(product);
         return acc;
       }, {});

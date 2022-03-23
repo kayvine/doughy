@@ -16,6 +16,12 @@
 
 <script>
 export default {
-  props: ['product'],
+  name: 'DoughyItem',
+  props: {
+    product: {
+      type: Object,
+      required: true,
+    },
+  },
 };
 </script>

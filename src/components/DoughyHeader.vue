@@ -3,8 +3,8 @@
     <nav id="nav">
       <div class="md:container flex items-center h-16 min-w-full bg-white p-2" :class="{ fixed: drawer }">
         <a
-          @click.stop="goToPage('/')"
           class="text-lg font-bold uppercase text-gray-900 pl-2 mr-2 sm:cursor-pointer"
+          @click.stop="goToPage('/')"
         >
           <span>Doughy</span><span class="text-indigo-500">PWA</span>
         </a>
@@ -12,9 +12,9 @@
           <div class="hidden md:inline-block flex-shrink-0">
             <ul class="dt">
               <li
-                class="inline-block text-sm font-bold uppercase tracking-wider px-4 py-2"
                 v-for="item in navItems"
                 :key="item.title"
+                class="inline-block text-sm font-bold uppercase tracking-wider px-4 py-2"
               >
                 <router-link :to="item.link">{{ item.title }}</router-link>
               </li>
@@ -43,15 +43,15 @@
       <span>
         <div
           v-if="drawer"
-          @click="drawer = false"
           class="d-mask fixed inset-0 pointer-events-auto bg-black bg-opacity-25"
+          @click="drawer = false"
         ></div>
       </span>
 
       <div class="d-nav-drawer" :class="drawer ? 'open' : 'closed'">
         <div class="flex flex-col mt-4">
           <ul>
-            <li class="text-lg px-8 py-4" v-for="item in navItems" :key="item.title">
+            <li v-for="item in navItems" :key="item.title" class="text-lg px-8 py-4">
               <a @click.stop="goToPage(item.link)">{{ item.title }}</a>
             </li>
           </ul>

@@ -1,7 +1,9 @@
 <template>
   <div id="cart">
     <main id="content" class="md:bg-gray-100 h-screen">
-      <div class="d-c-header flex flex-col bg-gray-800 text-white lg:fixed lg:inset-y-0 lg:left-0">
+      <div
+        class="d-c-header flex flex-col bg-gray-800 text-white lg:fixed lg:inset-y-0 lg:left-0"
+      >
         <div class="w-full flex items-center px-2 pt-4 pb-2">
           <router-link to="/menu" class="text-md text-bold no-underline">
             <svg
@@ -20,7 +22,9 @@
         </div>
 
         <div class="my-auto p-4 lg:px-16 lg">
-          <h1 class="text-2xl font-semibold md:text-4xl">Review Order ({{ numberOfProducts }})</h1>
+          <h1 class="text-2xl font-semibold md:text-4xl">
+            Review Order ({{ numberOfProducts }})
+          </h1>
           <p class="text-indigo-200 mb-1 md:text-lg">Small explanation here</p>
         </div>
       </div>
@@ -37,7 +41,9 @@
               <DoughyItem :product="item" />
               <p class="h-8 pl-6 pb-2 ml-20 lg:ml-24">{{ item.option }}</p>
               <span class="text-indigo-500 ml-auto pr-2 pb-3">
-                <a @click="removeItem(item)" class="underline cursor-pointer">remove</a>
+                <a class="underline cursor-pointer" @click="removeItem(item)"
+                  >remove</a
+                >
               </span>
               <!-- <span class="flex sm:w-1/3 text-indigo-500 ml-20 lg:ml-24 pr-2 pb-3"> -->
               <!-- >maybe add function to increase/decrease quantity -->
@@ -49,7 +55,9 @@
 
           <span>
             <div class="fixed bottom-0 right-0 text-xl z-10 p-4">
-              <a class="btn btn-indigo rounded-full mt-3 cursor-pointer">Continue</a>
+              <a class="btn btn-indigo rounded-full mt-3 cursor-pointer"
+                >Continue</a
+              >
             </div>
           </span>
         </template>
@@ -57,8 +65,8 @@
         <div v-else class="flex flex-col px-12 mt-6">
           <div class="text-2xl">Start your next order</div>
           <div class="mt-4">
-            As you add menu items, they'll appear here. You'll have a chance to review before placing your
-            order.
+            As you add menu items, they'll appear here. You'll have a chance to
+            review before placing your order.
           </div>
           <div class="mb-10">
             <router-link
@@ -80,11 +88,15 @@ import store from '@/store';
 import DoughyItem from '@/components/shared/DoughyItem.vue';
 
 export default {
-  name: 'Cart',
+  name: 'CartOverviewPage',
   components: {
     DoughyItem,
   },
-  computed: mapGetters('cart', ['cartProducts', 'numberOfProducts', 'cartTotalPrice']),
+  computed: mapGetters('cart', [
+    'cartProducts',
+    'numberOfProducts',
+    'cartTotalPrice',
+  ]),
   methods: {
     productById(id) {
       return store.getters.productById(id);

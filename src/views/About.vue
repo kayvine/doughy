@@ -18,10 +18,10 @@ import DoughyHeader from '@/components/DoughyHeader.vue';
 import DoughyFooter from '@/components/DoughyFooter.vue';
 
 export default {
-  name: 'About',
+  name: 'AboutPage',
   components: {
     DoughyHeader,
-    DoughyFooter
-  }
+    DoughyFooter,
+  },
 };
 </script>
