@@ -1,5 +1,7 @@
 import { register } from 'register-service-worker';
 
+console.log(`${import.meta.env.BASE_URL}service-worker.js`);
+
 if (import.meta.env.PROD) {
   register(`${import.meta.env.BASE_URL}service-worker.js`, {
     ready() {
