@@ -15,9 +15,9 @@
       "type": "image/png"
     }
   ],
-  "name": "Love for pastry",
+  "name": "Doughy: Love for pastry",
   "scope": "/",
   "short_name": "Doughy",
   "start_url": "/index.html",
-  "theme_color": "MediumSlateBlue"
+  "theme_color": "#667eea"
 }
